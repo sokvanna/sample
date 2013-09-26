@@ -1,0 +1,491 @@
+sample
+======
+package
+{
+import flash.display.StageScaleMode;
+import flash.display.StageAlign;
+import flash.display.Sprite;
+import flash.events.Event;
+import flash.utils.Timer;
+import flashx.textLayout.operations.RedoOperation;
+import flash.display.SimpleButton;
+	import flash.events.MouseEvent;
+	import flash.display.DisplayObject;
+import flash.geom.ColorTransform;
+import flash.display.BitmapData;
+import flash.display.Bitmap;
+import flash.geom.Point;
+import flash.filters.DisplacementMapFilter;
+import flash.display.MovieClip;
+
+public class newy extends Sprite
+{
+	
+	private var stageRight:uint = stage.stageWidth;
+		private var stageBottom:uint = stage.stageHeight;
+private var radius:Number;
+
+private var deltaVar:int;
+private var zoomAmount:int = 10;
+
+private var Lyrics:lyric;
+
+private var _lyrics:Vector.<lyric> = new Vector.<lyric>();
+private var _Clothy:clothes;
+private var Gravity:Number = -.02;
+private var myBall:blue;
+private var myYellow:yellow;
+private var myGreen:green;
+private var myPurple:purple;
+private var myBalls = new Array();
+private var NumBalloons:Number = 2;
+private var myRed:red;
+private var myReds = new Array();
+private var clicks:Number = 0;
+private var myGreens = new Array();
+private var myYellows = new Array();
+private var myPurples = new Array();
+var rootBmp:BitmapData;
+var dTestBmp:Bitmap;
+var dMap:BitmapData;
+var dPoint:Point = new Point(0, 0);
+var dFilter:DisplacementMapFilter = new DisplacementMapFilter ();
+
+public function newy():void
+{
+	addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+}
+
+private function onAddedToStage(e:Event):void
+{
+	
+	init();
+}
+
+private function init():void
+{
+
+rootBmp = new BitmapData(root.width, root.height, true, 0xffffff);
+dTestBmp = new Bitmap(rootBmp);
+addChild(dTestBmp);
+
+dMap = new BitmapData(colorMap_mc.width, colorMap_mc.height, true, 0x808080);
+dMap.draw(colorMap_mc);
+
+
+dFilter.scaleX 		= 50		// pixel displacement force on X
+dFilter.scaleY 		= 50		// pixel displacement force on Y
+dFilter.componentX 	= 1			// or BitmapDataChannel.RED
+dFilter.componentY 	= 2			// or BitmapDataChannel.GREEN
+dFilter.mode		= "color"	// or DisplacementMapFilterMode.COLOR / WRAP / CLAMP / IGNORE
+dFilter.color		= 0x000000	// color of pixels when source is empty
+dFilter.alpha 		= 0			// alpha of colored pixels when source is empty
+
+
+stage.scaleMode = StageScaleMode.NO_SCALE;
+			stage.align = StageAlign.TOP_LEFT;
+			
+			
+			Lyrics = new lyric();
+			_Clothy = new clothes();
+			myGreens = new Array();
+myYellows = new Array();
+ myPurples = new Array();
+		myBalls = new Array();
+		myReds = new Array();
+				for (var i:uint = 0; i < NumBalloons; i++){
+			
+myPurple = new purple();
+
+myPurple.vx = Math.random() * 2 - 1;
+				myPurple.vy = Math.random() * 2 - 1;
+				myPurple.x = Math.random() * stageRight;
+				myPurple.y = Math.random() * stageBottom;
+addChild(myPurple);
+myPurples.push(myPurple);
+radius = myPurple.width * 2;
+myPurple.addEventListener(MouseEvent.CLICK, onPurpleClick);
+		}
+		for (i= 0; i < NumBalloons; i++){
+myGreen = new green();
+
+myGreen.vx = Math.random() * 2 - 1;
+				myGreen.vy = Math.random() * 2 - 1;
+				myGreen.x = Math.random() * stageRight;
+				myGreen.y = Math.random() * stageBottom;
+addChild(myGreen);
+myGreens.push(myGreen);
+radius = myGreen.width * 2;
+myGreen.addEventListener(MouseEvent.CLICK, onGreenClick);
+		}
+		
+		for (i= 0; i < NumBalloons; i++){
+			
+			
+			
+myYellow = new yellow();
+
+myYellow.vx = Math.random() * 2 - 1;
+				myYellow.vy = Math.random() * 2 - 1;
+				myYellow.x = Math.random() * stageRight;
+				myYellow.y = Math.random() * stageBottom;
+addChild(myYellow);
+myYellows.push(myYellow);
+radius = myYellow.width * 2;
+myYellow.addEventListener(MouseEvent.CLICK, onYellowClick);
+		}
+		for ( i = 0; i < NumBalloons; i++){
+			
+			
+			
+myBall = new blue();
+
+myBall.vx = Math.random() * 2 - 1;
+				myBall.vy = Math.random() * 2 - 1;
+				myBall.x = Math.random() * stageRight;
+				myBall.y = Math.random() * stageBottom;
+addChild(myBall);
+myBalls.push(myBall);
+radius = myBall.width * 2;
+myBall.addEventListener(MouseEvent.CLICK, onBlueClick);
+			
+		}
+				for (i = 0; i < NumBalloons; i++){
+			
+myRed = new red();
+
+myRed.vx = Math.random() * 2 - 1;
+				myRed.vy = Math.random() * 2 - 1;
+				myRed.x = Math.random() * stageRight;
+				myRed.y = Math.random() * stageBottom;
+addChild(myRed);
+myReds.push(myRed);
+radius = myRed.width * 2;
+myRed.addEventListener(MouseEvent.CLICK, onRedClick);
+				}
+			
+stage.addEventListener(Event.ENTER_FRAME, myOnEnterFrame);
+
+stage.addEventListener(MouseEvent.MOUSE_WHEEL, wheely);
+}
+private function wheely(event:MouseEvent):void{
+	deltaVar = event.delta;
+	
+	if (deltaVar > 0){
+		event.target.width += zoomAmount;
+		event.target.height += zoomAmount;
+	}
+		else if (deltaVar < 0){
+			event.target.width -= zoomAmount;
+		event.target.height -= zoomAmount;
+		}
+	
+}
+private function onBlueClick(event:MouseEvent):void{
+	clicks++
+	var ball:DisplayObject = DisplayObject(event.currentTarget);
+	removeChild(ball);
+	
+	var l:lyric = new lyric();
+	_lyrics.push(l);
+	addChild(l);
+	
+	l.x = ball.x;
+	l.y = ball.y;
+	addChildAt(_Clothy, 8);
+	_Clothy.x = 231.25;
+	_Clothy.y = 339.65;
+	var myColorTransform:ColorTransform = new ColorTransform();
+
+myColorTransform.color =  0x0000FF;
+
+_Clothy.transform.colorTransform=myColorTransform;
+	
+
+}
+private function onPurpleClick(event:MouseEvent):void{
+	clicks++
+	var ball:DisplayObject = DisplayObject(event.currentTarget);
+	removeChild(ball);
+	
+	var l:lyric = new lyric();
+	_lyrics.push(l);
+	addChild(l);
+	
+	l.x = ball.x;
+	l.y = ball.y;
+	addChildAt(_Clothy, 8);
+	_Clothy.x = 231.25;
+	_Clothy.y = 339.65;
+	var myColorTransform:ColorTransform = new ColorTransform();
+
+myColorTransform.color =  0xFF00FF;
+
+_Clothy.transform.colorTransform=myColorTransform;
+	
+
+}
+private function onRedClick(event:MouseEvent):void{
+	clicks++
+	var ball:DisplayObject = DisplayObject(event.currentTarget);
+	removeChild(ball);
+	
+	var l:lyric = new lyric();
+	_lyrics.push(l);
+	addChild(l);
+	
+	l.x = ball.x;
+	l.y = ball.y;
+	addChildAt(_Clothy, 8);
+	_Clothy.x = 231.25;
+	_Clothy.y = 339.65;
+	var myColorTransform:ColorTransform = new ColorTransform();
+
+myColorTransform.color =  0x000000;
+
+_Clothy.transform.colorTransform=myColorTransform;
+	
+
+}
+private function onGreenClick(event:MouseEvent):void{
+	clicks++
+	var ball:DisplayObject = DisplayObject(event.currentTarget);
+	removeChild(ball);
+	
+	var l:lyric = new lyric();
+	_lyrics.push(l);
+	addChild(l);
+	
+	l.x = ball.x;
+	l.y = ball.y;
+	addChildAt(_Clothy, 8);
+	_Clothy.x = 231.25;
+	_Clothy.y = 339.65;
+	var myColorTransform:ColorTransform = new ColorTransform();
+
+myColorTransform.color =  0x00FF00;
+
+_Clothy.transform.colorTransform=myColorTransform;
+	
+
+}
+
+private function onYellowClick(event:MouseEvent):void{
+	clicks++
+	var ball:DisplayObject = DisplayObject(event.currentTarget);
+	removeChild(ball);
+	
+	var l:lyric = new lyric();
+	_lyrics.push(l);
+	addChild(l);
+	
+	l.x = ball.x;
+	l.y = ball.y;
+	addChildAt(_Clothy, 8);
+	_Clothy.x = 231.25;
+	_Clothy.y = 339.65;
+	var myColorTransform:ColorTransform = new ColorTransform();
+
+myColorTransform.color =  0xFFFF00;
+
+_Clothy.transform.colorTransform=myColorTransform;
+	
+
+}
+private function glass(event:Event):void{
+	
+dFilter.mapPoint	= dPoint;	// position of the filters effect area
+dFilter.mapBitmap	= dMap;		// map of colored pixels that controls the displacement
+removeChild(lens_mc);
+colorMap_mc.visible = false;
+rootBmp.draw(dTestBmp);
+addChild(lens_mc);
+
+
+
+dPoint.x += ((mouseX - colorMap_mc.width  /2) - dPoint.x) * 0.3;
+dPoint.y += ((mouseY - colorMap_mc.height / 2) - dPoint.y) * 0.3;
+lens_mc.x = dPoint.x - 8;
+lens_mc.y = dPoint.y - 8;
+dFilter.mapPoint = dPoint;
+
+root.filters = [dFilter];
+
+
+}
+private function myOnEnterFrame(event:Event):void
+{
+
+if (clicks == 10){
+	stage.addEventListener(Event.ENTER_FRAME, glass);
+}
+
+for (var i:uint = 0; i < NumBalloons; i++){
+		myPurples[i].vy += Gravity ;
+myPurples[i].vx = 1 * Math.random();
+myPurples[i].x += myPurples[i].vx;
+myPurples[i].y += myPurples[i].vy;
+
+	myYellows[i].vy += Gravity ;
+myYellows[i].vx = .1 * Math.random();
+myYellows[i].x += myYellows[i].vx;
+myYellows[i].y += myYellows[i].vy;
+
+	myGreens[i].vy += Gravity ;
+myGreens[i].vx = .1 * Math.random();
+myGreens[i].x += myGreens[i].vx;
+myGreens[i].y += myGreens[i].vy;
+
+myBalls[i].vy += Gravity ;
+myBalls[i].vx = .1 * Math.random();
+myBalls[i].x += myBalls[i].vx;
+myBalls[i].y += myBalls[i].vy;
+
+myReds[i].vy += Gravity ;
+myReds[i].vx = .1 * Math.random();
+myReds[i].x += myReds[i].vx;
+myReds[i].y += myReds[i].vy;
+
+if (myPurples[i].x + radius < 0 )
+				{
+
+					myPurples[i].x = stage.stageWidth + radius ;
+
+					
+				}
+				else if (myPurples[i].x - radius > stage.stageWidth){
+					myPurples[i].x = 0 - radius;
+					
+				}
+				if (myPurples[i].y + radius < 0 )
+				{
+
+					myPurples[i].y = stage.stageHeight + radius ;
+myPurples.vx *= Math.random();
+					
+				}
+				else if (myPurples[i].y - radius > stage.stageHeight){
+					myPurples[i].y = 0 - radius;
+					myPurples.vx *= Math.random();
+					
+				}
+				if ( myPurples[i].vy > -10){
+					myPurples[i].vy = -1;
+				}
+if (myYellows[i].x + radius < 0 )
+				{
+
+					myYellows[i].x = stage.stageWidth + radius ;
+
+					
+				}
+				else if (myYellows[i].x - radius > stage.stageWidth){
+					myYellows[i].x = 0 - radius;
+					
+				}
+				if (myYellows[i].y + radius < 0 )
+				{
+
+					myYellows[i].y = stage.stageHeight + radius ;
+myYellows.vx *= Math.random();
+					
+				}
+				else if (myYellows[i].y - radius > stage.stageHeight){
+					myYellows[i].y = 0 - radius;
+					myYellows.vx *= Math.random();
+					
+				}
+				if ( myYellows[i].vy > -10){
+					myYellows[i].vy = -1;
+				}
+				
+				
+
+if (myBalls[i].x + radius < 0 )
+				{
+
+					myBalls[i].x = stage.stageWidth + radius ;
+
+					
+				}
+				else if (myBalls[i].x - radius > stage.stageWidth){
+					myBalls[i].x = 0 - radius;
+					
+				}
+				if (myBalls[i].y + radius < 0 )
+				{
+
+					myBalls[i].y = stage.stageHeight + radius ;
+myBalls.vx *= Math.random();
+					
+				}
+				else if (myBalls[i].y - radius > stage.stageHeight){
+					myBalls[i].y = 0 - radius;
+					myBalls.vx *= Math.random();
+					
+				}
+				if ( myBalls[i].vy > -10){
+					myBalls[i].vy = -1;
+				}
+				
+
+if (myReds[i].x + radius < 0 )
+				{
+
+					myReds[i].x = stage.stageWidth + radius ;
+
+					
+				}
+				else if (myReds[i].x - radius > stage.stageWidth){
+					myReds[i].x = 0 - radius;
+					
+				}
+				if (myReds[i].y + radius < 0 )
+				{
+
+					myReds[i].y = stage.stageHeight + radius ;
+myReds.vx *= Math.random();
+					
+				}
+				else if (myReds[i].y - radius > stage.stageHeight){
+					myReds[i].y = 0 - radius;
+					myReds.vx *= Math.random();
+					
+				}
+				if ( myReds[i].vy > -10){
+					myReds[i].vy = -1;
+				}
+				
+				if (myGreens[i].x + radius < 0 )
+				{
+
+					myGreens[i].x = stage.stageWidth + radius ;
+
+					
+				}
+				else if (myGreens[i].x - radius > stage.stageWidth){
+					myGreens[i].x = 0 - radius;
+					
+				}
+				if (myGreens[i].y + radius < 0 )
+				{
+
+					myGreens[i].y = stage.stageHeight + radius ;
+myGreens.vx *= Math.random();
+					
+				}
+				else if (myGreens[i].y - radius > stage.stageHeight){
+					myGreens[i].y = 0 - radius;
+					myGreens.vx *= Math.random();
+					
+				}
+				if ( myGreens[i].vy > -10){
+					myGreens[i].vy = -1;
+				}
+}
+
+
+}
+
+} // end class
+} // end package
