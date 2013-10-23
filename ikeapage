@@ -1,0 +1,189 @@
+sample
+======
+<!-- Kitchen refresh -->
+<div class="pageBody" id="ref23">
+	<div class="pageHeader">
+		<h1>This time of year, new kitchens are in season</h1>
+		<p class="topBlurb">With your creativity running hot, there's no better time for a kitchen refresh. Do it your way and create a home centerpiece for warm weather entertaining and beyond.</p>
+		<div class="pageSocial">
+			<div class="facebookHolder">
+				<div id="s23l">
+					<div class="like"></div>
+				</div>
+			</div>
+			<a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Finfo.ikea-usa.com%2Fcelebrate%2F%23%2FCelebrate%2FCelebratebrilliantly%2FOvernightsuccess&media=http%3A%2F%2Finfo.ikea-usa.com%2FCelebrate%2FContent%2Fimages%2Fissue%2Fthumbnails%2F1%2F01-6.jpg&description=Overnight%20success" target="_blank" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
+		</div>
+	</div>
+
+	<div class="sideDets">
+		<h2 class="spiceit">Spice it up</h2>
+		<p class="spiceDesc">Give your new kitchen some extra flavor with these recommended ingredients.</p>
+		<a href="#" alt="kitchen guide" class="kitchenGuide">GET COOKING WITH OUR KITCHEN BUYING GUIDE</a>
+		<p class="layoutDets">*See IKEA store for 10'x10' layout details.</p>
+	</div>
+	
+	<div class="kitchenSwitch" id="kitchen1">
+		<div id="r23a" data-skus="" class="openDetail"></div>
+		<div id="r23b" data-skus="" class="openDetail"></div>
+		<div id="r23c" data-skus="" class="openDetail"></div>
+		<div id="price1" class="ikeaPrice pdWhite">
+			<p class="itemName"><span>XXXX</span> xxx</p>
+			<p class="priceTag">$</p>
+			<div class="itemPrice">
+				<p class="priceDollar">XXX</p>
+			</div>
+		</div>
+	</div>
+	<div class="kitchenSwitch" id="kitchen2">
+		<div id="r23d" data-skus="" class="openDetail"></div>
+		<div id="r23e" data-skus="" class="openDetail"></div>
+		<div id="r23f" data-skus="" class="openDetail"></div>
+		<div id="price2" class="ikeaPrice pdWhite">
+			<p class="itemName"><span>XXXX</span> xxx</p>
+			<p class="priceTag">$</p>
+			<div class="itemPrice">
+				<p class="priceDollar">XXX</p>
+			</div>
+		</div>
+	</div>
+	<div class="kitchenSwitch" id="kitchen3">
+		<div id="r23g" data-skus="" class="openDetail"></div>
+		<div id="r23h" data-skus="" class="openDetail"></div>
+		<div id="r23i" data-skus="" class="openDetail"></div>
+		<div id="price3" class="ikeaPrice pdWhite">
+			<p class="itemName"><span>XXXX</span> xxx</p>
+			<p class="priceTag">$</p>
+			<div class="itemPrice">
+				<p class="priceDollar">XXX</p>
+			</div>
+		</div>
+	</div>
+	
+	<a href="http://www.ikea.com/ms/en_US/customer_service/warranty.html" target="_blank"><div class="warranty25"></div></a>
+	
+	<a href="#solution23" class="stylePWR solution"></a>
+	<div id="solution23">
+		<div class="solutionHeader">
+            <p>Style Solution</p>
+        </div>
+		<div style="height:27px;"></div>
+		<div style="width:265px; margin-left:350px;">
+			<h1 style="font-family: Verdana; margin-bottom:10px; margin-top:50px; font-size: 28px; color:#fff;">Your own garden of eatin'</h1>
+			<p style="margin-bottom:35px; line-height:25px;font-family:Verdana; font-size:18px; font-weight:normal; color:#FFF;">
+				Keeping pots of herbs by a sunny window not only brings life to your kitchen, it also gives you a convenient source of fresh, delicious accents for your favorite dishes.
+			</p>
+			<!--<a href="http://www.ikea.com/us/en/catalog/categories/departments/decoration/10760/" target="_blank" class="goshopping" style="line-height:18px;">Shop Candles<span class="purpleExternal"></span></a>-->
+			<p class="externalCTA pplExtCTA"><a class="goshopping pplExtCTA" href="http://www.ikea.com/us/en/catalog/categories/departments/decoration/" target="_blank">Shop Pots</a></p>
+		</div>
+	</div>
+	
+	<div class="serviceBWL solutionBlue" href="#serviceSolutionPopup"></div>
+	<div id="serviceSolutionPopup">
+		<div style="height:26px;"></div>
+		<div style="margin-left:10px; padding-top:15px; padding-left:11px;">
+			<h1 style="font-family:Verdana;font-size:30px; color:#FFF; margin-bottom:0px; line-height:36px;">You make the<br />meal, we'll make<br />the kitchen</h1>
+			<p style="font-family:Verdana; font-size:20px; letter-spacing:-1px; color:#FFF; margin-bottom:13px;width:320px;">With a full range of services, your IKEA store can give you as much or as little help as you need.<br /></p>
+			<a class="learnmore" href="http://www.ikea.com/ms/en_US/customer_service/ikea_services/ikea_services.html" target="_blank"><div class="learnMore2_btn"></div></a>
+			<div class="scrollInfo">
+				<h4 style="font-family:Verdana;font-size:15px; color:#FFF; margin-bottom:5px; font-weight:bold;">Measuring&#42;</h4>
+				<p style="font-family:Verdana; font-size:15px; color:#FFF; margin-bottom:9px; line-height:21px;">You've found your dream kitchen, but will it fit? If you need help with measuring, we'll send out a professional.<br /></p>
+				<h4 style="font-family:Verdana;font-size:15px; color:#FFF; margin-bottom:5px; font-weight:bold;">Installation&#42;</h4>
+				<p style="font-family:Verdana; font-size:15px; color:#FFF; margin-bottom:9px;line-height:21px">Our professional kitchen installers will
+				handle everything from plumbing to
+				electricity to carpentry, so you can concentrate on the fun stuff.</p>
+				<h4 style="font-family:Verdana;font-size:15px; color:#FFF; margin-bottom:5px; font-weight:bold;">Delivery&#42;</h4>
+				<p style="font-family:Verdana; font-size:15px; color:#FFF; margin-bottom:15px;">Save room in your car for the groceries;
+				leave the kitchen to us. No matter how
+				much you order, or how much it weighs, you'll only pay one flat
+				delivery fee.</p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="slideholder">
+        <div class="sliderBars">
+            <!--<p id="s2p4-slideLabel" class="sliderLabel bold">Slide to find your dream king mattress</p>-->
+            <div class="kitchenSlider2">
+            	<div class="sliderBG" id="s2p3-kitchenSlider"></div>
+                <div id="s2p3_legend" class="slide_legend">
+                    <div class="notches">
+                        <div id="s2p3-Notch1" class="sliderNotch"></div>
+                        <div id="s2p3-Notch2" class="sliderNotch"></div>
+                        <div id="s2p3-Notch3" class="sliderNotch"></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="legend-labels">
+                        <p id="s2p3Pos1" class="notchLabel bold">TRADITIONAL</p>
+                        <p id="s2p3Pos2" class="notchLabel bold">CONTEMPORARY</p>
+                        <p id="s2p3Pos3" class="notchLabel bold">MODERN</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+	var slide;
+	$(document).ready(function(e) {
+		picIndex = 1;
+		$('.kitchenSlider2').slider({
+			animate: 600,
+			orientation: 'horizontal',
+			max: 3,
+			min: 1,
+			value: 1,
+			change: function() {
+				slide = $(this).slider("option","value");
+				slide = Math.round(slide).toFixed(0);
+				//Active serves to prevent users from triggering animation without changing the slider handle position
+				if(slide == 1){
+					//updatePins(2, 3, "a");
+					$('#ref23 #kitchen1').animate({
+						opacity: 1
+					}, 600, function(){
+						$('#ref23 #kitchen1').css('z-index', '1');
+						$('#ref23 #kitchen2').css('z-index', '0');
+					});
+					$('#ref23 #kitchen2, #ref23 #kitchen3').animate({
+						opacity: 0
+					}, 600);
+					$('#ref23 .sideDets').animate({
+						color:'black'
+					}, 600);
+					$('#ref23 .kitchenGuide').animate({
+						color:'#59595b'
+					}, 600);
+				}
+				else if(slide == 2){
+				
+					$('#ref23 #kitchen2').animate({
+						opacity: 1
+					}, 600, function(){
+						$('#ref23 #kitchen1, #ref23 #kitchen3').css('z-index', '0');
+						$('#ref23 #kitchen2').css('z-index', '1');
+					});
+					$('#ref23 #kitchen1, #ref23 #kitchen3').animate({
+						opacity: 0
+					}, 600);
+					$('#ref23 .sideDets, #ref23 .kitchenGuide').animate({
+						color:'white'
+					}, 600);
+				}
+				else{
+					$('#ref23 #kitchen3').animate({
+						opacity: 1
+					}, 600, function(){
+						$('#ref23 #kitchen1, #ref23 #kitchen2').css('z-index', '0');
+						$('#ref23 #kitchen3').css('z-index', '1');
+					});
+					$('#ref23 #kitchen1, #ref23 #kitchen2').animate({
+						opacity: 0
+					}, 600);
+					$('#ref23 .sideDets, #ref23 .kitchenGuide').animate({
+						color:'white'
+					}, 600);
+				}
+			}
+		});
+	});
+</script>
